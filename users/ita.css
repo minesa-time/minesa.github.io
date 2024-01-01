@@ -1,0 +1,358 @@
+@import url("https://fonts.cdnfonts.com/css/kitchen-counter");
+@import url("https://fonts.cdnfonts.com/css/moirai-one");
+@import url("https://fonts.cdnfonts.com/css/gabton-malgora");
+
+:root {
+    --ita-color: 117, 199, 240;
+    --kitchen-counter-font-family: "Kitchen Counter", sans-serif;
+    --secondary-font-family: "Moirai One", sans-serif;
+    --third-font-family: "Gabton Malgora", sans-serif;
+}
+
+::selection {
+    color: var(--clr-neutral-100);
+    background-color: rgb(var(--ita-color));
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+        to bottom,
+        rgb(var(--ita-color)),
+        var(--clr-neutral-900)
+    );
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    background: #000;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--kitchen-counter-font-family);
+}
+
+.highlight-background {
+    padding: 0.1em 0.2em;
+
+    background-color: rgba(var(--ita-color), 0.4);
+    font-weight: 600;
+    color: var(--clr-neutral-100);
+}
+
+nav {
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: clamp(1em, 2vw, 3em);
+
+    z-index: 2;
+}
+
+.back-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+
+    font-family: var(--gloock-font-family);
+    font-weight: 700;
+}
+
+.back-button > img {
+    width: 10px;
+}
+
+main {
+    display: block;
+    margin: auto !important;
+    margin-inline: auto;
+}
+
+main section.hero__section {
+    position: relative;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    /* box-shadow: 0 10px 0 0 rgba(var(--ita-color), 0.8),
+        0 20px 0 0 rgba(var(--ita-color), 0.6),
+        0 30px 0 0 rgba(var(--ita-color), 0.4),
+        0 40px 0 0 rgba(var(--ita-color), 0.2); */
+
+    background-image: url("../assets/people/ita/ita_main_background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(0deg, #000, #000000a5, #ffffff6f);
+    }
+
+    & h1 {
+        color: rgb(var(--ita-color));
+        text-align: left;
+        font-family: var(--secondary-font-family);
+        z-index: 1;
+    }
+
+    & div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        z-index: 1;
+
+        & :is(p, a) {
+            color: rgb(193, 193, 193);
+            text-align: left;
+        }
+
+        a {
+            display: flex;
+            align-items: center;
+
+            border: 2px solid rgb(var(--ita-color));
+            padding: var(--padding-block);
+            margin: var(--margin-block);
+            border-radius: 15px;
+
+            color: rgb(var(--ita-color));
+            font-weight: 600;
+            font-family: var(--kitchen-counter-font-family);
+
+            cursor: pointer;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+
+            & img {
+                width: 25px;
+                margin-right: 0.25em;
+                transition: all 0.5s ease-in-out;
+            }
+
+            &:hover {
+                transition: all 0.5s ease-in-out;
+                box-shadow: 0 0 5px rgb(var(--ita-color));
+
+                & img {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+}
+
+section:nth-child(2) {
+    margin: calc(var(--margin-block) * 10) var(--margin-inline);
+
+    & h2 {
+        color: var(--clr-neutral-100);
+    }
+
+    & p {
+        margin-block: var(--margin-block);
+    }
+}
+
+section:nth-child(2) h6,
+section:nth-child(3) h6 {
+    text-transform: uppercase;
+    color: var(--clr-neutral-300);
+    font-weight: 700;
+    margin-bottom: 1em;
+}
+
+section:nth-child(2) > div {
+    position: relative;
+    top: 0;
+    background-image: url("../assets/people/ita/ita_mail_background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 15px;
+    padding: 3em;
+    margin: var(--margin-block) var(--margin-inline);
+    display: flex;
+    align-items: center;
+    z-index: -2;
+    box-shadow: 0 5px 0 0 rgba(63, 63, 63, 0.7),
+        0 10px 0 0 rgba(62, 62, 62, 0.5), 0 15px 0 0 rgba(90, 90, 90, 0.3),
+        0 20px 0 0 rgba(81, 81, 81, 0.1);
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+        z-index: -1;
+        border-radius: 15px;
+    }
+}
+
+section:nth-child(2) div {
+    flex-direction: column;
+    text-align: start;
+    justify-content: center;
+    align-items: start;
+    color: var(--clr-neutral-100);
+
+    & p {
+        color: var(--clr-neutral-300);
+    }
+}
+
+section:nth-child(3) {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin: var(--margin-block) var(--margin-inline);
+
+    & h2 {
+        color: var(--clr-neutral-100);
+    }
+
+    & p {
+        margin-bottom: 3em;
+    }
+}
+
+section:nth-child(3) div div {
+    padding: var(--padding-block) var(--padding-inline);
+    margin: var(--margin-block) var(--margin-inline);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    text-align: left;
+    border-radius: 15px;
+    background-color: var(--clr-neutral-900);
+}
+
+section:nth-child(3)
+    div
+    div:is(
+        :nth-child(1),
+        :nth-child(2),
+        :nth-child(3),
+        :nth-child(4),
+        :nth-child(5),
+        :nth-child(6)
+    ) {
+    position: relative;
+
+    margin-bottom: 5em;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+
+        background-color: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(1px);
+        -webkit-backdrop-filter: blur(1px);
+    }
+}
+
+section:nth-child(3) div div:nth-child(1) {
+    background-image: url("../assets/people/ita/ita_commands1.webp");
+}
+
+section:nth-child(3) div div:nth-child(2) {
+    background-image: url("../assets/people/ita/ita_commands2.webp");
+}
+section:nth-child(3) div div:nth-child(3) {
+    background-position: bottom;
+    background-image: url("../assets/people/ita/ita_commands3.webp");
+}
+section:nth-child(3) div div:nth-child(4) {
+    background-image: url("../assets/people/ita/ita_commands4.webp");
+}
+section:nth-child(3) div div:nth-child(5) {
+    background-image: url("../assets/people/ita/ita_commands5.webp");
+}
+section:nth-child(3) div div:nth-child(6) {
+    background-image: url("../assets/people/ita/ita_commands6.webp");
+}
+
+section:nth-child(3) div div h5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--clr-neutral-100);
+    z-index: 2;
+
+    & img {
+        margin-right: 0.25em;
+    }
+
+    & span {
+        border-radius: 10px;
+        border: 1px solid var(--ita-color);
+        font-size: xx-small;
+        padding: 0.25em 0.5em;
+        color: var(--ita-color);
+        margin-left: 0.5em;
+    }
+}
+
+section:nth-child(3) div div h6 {
+    text-transform: lowercase;
+    margin: 0.5em;
+    z-index: 2;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.header-icon {
+    width: clamp(0.9rem, 3vw, 1.8rem);
+    align-self: center;
+}
+
+section:nth-child(3) div div p {
+    color: var(--clr-neutral-100);
+    z-index: 2;
+}
+
+footer div > h2 {
+    line-height: 2em;
+}
