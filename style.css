@@ -19,6 +19,7 @@
     --orange-color: rgb(255, 175, 54);
     --green-color: rgb(55, 187, 29);
     --teal-color: rgb(108, 163, 184);
+    --brown-color: rgb(227, 159, 113);
 
     --box-shadow-900: rgba(0, 0, 0, 0.4);
 
@@ -52,8 +53,8 @@ body {
         10deg,
         #ffdede 10%,
         #f2deff 40%,
-        #d9fffa,
-        #fff7bd
+        #ffe2c2,
+        #b9fff7
     );
 }
 
@@ -131,10 +132,10 @@ header {
         width: min(95%, 2456px);
         height: 200px;
 
-        border-radius: 25px;
+        border-radius: 23px;
 
         object-fit: cover;
-        object-position: center 20%;
+        object-position: center;
         box-shadow: 0 5px 100px 10px var(--box-shadow-900);
         z-index: -1;
 
@@ -145,30 +146,28 @@ header {
 /* logo container */
 header > div.logo__container {
     position: absolute;
-    top: 10px;
+    align-self: center;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border-radius: 25px;
-    border: 1px solid var(--clr-neutral-900);
-    padding: 0.2em 0.4em;
+    border-radius: 13px;
+    padding: 0.4em 0.8em;
 
-    opacity: 0.6;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 
     /* logo */
     & > img {
-        height: clamp(0.5em, 2vw, 5em);
+        height: clamp(1em, 2vw, 5em);
     }
 
     /* logo text */
     & > span {
         color: var(--clr-neutral-900);
         letter-spacing: -0.2px;
-        font-size: clamp(0.5em, 2vw, 5em);
+        font-size: clamp(1em, 2vw, 5em);
 
         padding-left: 0.25em;
 
@@ -424,8 +423,8 @@ div.guild__container > div.guild__bottom__container {
     }
 }
 
-/* ita support */
-aside a.ita__container {
+/* kaeru support */
+aside a.kaeru__container {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -434,26 +433,29 @@ aside a.ita__container {
 
     height: 100%;
 
-    border-radius: 10px;
+    border-radius: 23px;
     padding: 1em;
 
-    background: url("./assets/people/ita/ita_support.png");
+    background: url("./users/kaeru/assets/kaeru_hero.png");
     background-size: cover;
+    background-position: center;
 
     transition: transform 500ms, box-shadow 300ms;
-    box-shadow: 0 0 0 5px rgb(0, 0, 0, 0.7), 0 0 0 10px rgb(0, 0, 0, 0.5),
-        0 0 0 15px rgb(0, 0, 0, 0.3), 0 0 0 20px rgb(0, 0, 0, 0.1);
+    box-shadow: 0 0 0 5px rgba(255, 195, 160, 0.7),
+        0 0 0 10px rgba(255, 195, 160, 0.5), 0 0 0 15px rgba(255, 195, 160, 0.3),
+        0 0 rgba(255, 195, 160, 0.1);
 
     &:hover {
-        transform: rotate(1deg) scale(1.05);
-        box-shadow: 0 0 0 5px rgba(255, 255, 255, 0.7),
-            0 0 0 10px rgba(255, 255, 255, 0.5),
-            0 0 0 15px rgba(255, 255, 255, 0.3), 0 0 rgba(255, 255, 255, 0.1);
+        transform: scale(0.975);
+        box-shadow: 0 0 0 5px rgba(200, 95, 35, 0.7),
+            0 0 0 10px rgba(200, 95, 35, 0.5), 0 0 0 15px rgba(200, 95, 35, 0.3),
+            0 0 rgba(200, 95, 35, 0.1);
         &::after {
-            box-shadow: inset 0 0 100px 0 rgb(0, 0, 0);
+            box-shadow: inset 0 0 100px rgb(0, 0, 0);
         }
 
-        & h3 {
+        & h3,
+        p {
             opacity: 1;
         }
     }
@@ -468,19 +470,21 @@ aside a.ita__container {
 
         border-radius: inherit;
 
-        box-shadow: inset 0 0 300px 0px rgb(0, 0, 0);
+        box-shadow: inset 0 0 300px rgba(0, 0, 0, 0.6);
         transition: box-shadow 500ms;
     }
 
     /* support header */
     & h3 {
         color: var(--clr-neutral-100);
-        opacity: 0.6;
+        opacity: 0.7;
     }
 
     & p {
         padding-top: 0.5em;
         color: #ffffff;
+        opacity: 0.6;
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
 
         & > span {
             font-family: var(--gloock-font-family);
@@ -730,6 +734,10 @@ footer > ul > a li {
         color: var(--teal-color);
     }
 
+    &.brown {
+        color: var(--brown-color);
+    }
+
     &.white {
         color: var(--clr-neutral-100);
     }
@@ -743,9 +751,18 @@ footer > ul > a li {
     }
 }
 
+.owner-tag {
+    border-radius: 25px;
+    border: 1px solid var(--red-color);
+    color: var(--red-color);
+    font-size: xx-small;
+    padding: 0.1em 0.2em;
+    margin-top: 0;
+}
+
 /* background box for sections */
 .background-box {
-    border-radius: 10px;
+    border-radius: 23px;
 
     /* dark version */
     &.dark {
@@ -768,6 +785,10 @@ footer > ul > a li {
             0px 20px 0 rgba(255, 255, 255, 0.1),
             0px 25px 0 rgba(255, 255, 255, 0.05);
     }
+}
+
+.fade-up {
+    animation: FadeOutTop 3s linear forwards 1 reverse;
 }
 
 @media (max-width: 968px) {
@@ -877,5 +898,17 @@ footer > ul > a li {
 
     .section-tile-text-p {
         margin-bottom: auto;
+    }
+}
+
+@keyframes FadeOutTop {
+    0% {
+        opacity: 1;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(0);
     }
 }

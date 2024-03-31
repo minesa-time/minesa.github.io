@@ -135,7 +135,7 @@ main {
 .user__description {
     padding-left: 3em;
     margin-left: 3em;
-    border-left: 2px solid var(--clr-neutral-300);
+    border-left: 2px solid var(--clr-neutral-900);
     animation: ScaleVertical 2s ease-in-out 0s 1 reverse forwards;
 
     & > h1 {
@@ -146,7 +146,22 @@ main {
     & > h4 {
         font-weight: 400;
         color: var(--clr-neutral-300);
-        animation: FadeOutLeft 2s ease-in-out 2s 1 reverse forwards;
+        animation: FadeOutLeft 2s ease-in-out 3s 1 reverse forwards;
+        opacity: 0;
+    }
+
+    & h6 {
+        font-family: system-ui, Arial, Helvetica, sans-serif;
+        color: var(--red-color);
+        border-radius: 25px;
+        border: 1px solid var(--red-color);
+        display: inline-block;
+        margin-top: 1em;
+        padding: 0.2em 0.4em;
+
+        rotate: -2deg;
+
+        animation: zoomOut 0.3s ease-in-out 4s 1 reverse forwards;
         opacity: 0;
     }
 }
@@ -357,6 +372,27 @@ footer {
     .album-info > p {
         display: none;
     }
+
+    .user__description {
+        animation: ScaleVertical 2s ease-in-out 0s 1 reverse forwards;
+
+        & > h1 {
+            animation: FadeOutTop 2s ease-in-out 2s 1 reverse forwards;
+            opacity: 0;
+        }
+
+        & > h4 {
+            font-weight: 400;
+            color: var(--clr-neutral-300);
+            animation: FadeOutTop 2s ease-in-out 3s 1 reverse forwards;
+            opacity: 0;
+        }
+
+        & > h6 {
+            animation: zoomOut 0.3s ease-in-out 4s 1 reverse forwards;
+            opacity: 0;
+        }
+    }
 }
 
 @keyframes zoomOut {
@@ -380,6 +416,18 @@ footer {
     100% {
         opacity: 0;
         transform: translateX(-50px);
+    }
+}
+
+@keyframes FadeOutTop {
+    0% {
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(0);
     }
 }
 
